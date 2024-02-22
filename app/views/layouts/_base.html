@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% set next = data.current + 1 %}
+{% if next %}
+    {% set formPostLink = "/question/" + next %}
+{% else %}
+    {% set formPostLink = null %}
+    {% set backLink = backLink or 'true' %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% if phaseBanner == 'true' %}
+        {% include '_includes/phase-banner.njk' %}
+    {% endif %}
+
+    {% if backLink == 'true' %}
+        {% include '_includes/back-link.njk' %}
+    {% endif %}
+
+    {% if languageToggle == 'true' %}
+        {% include '_includes/language-toggle.njk' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+

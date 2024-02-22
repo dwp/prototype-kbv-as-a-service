@@ -1,0 +1,55 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+{% set booleanValues = [true, false] %}
+{% set awardsValues = ["PIP", "ESA", "both"] %}
+
+{% set title =  "All journeys" %}
+
+{% set rows = [] %}
+
+{% for partner in booleanValues %}
+    {% for child in booleanValues %}
+        {% for award in awardsValues %}
+            {% set link %}
+                <a class="govuk-link" href={{ "/journey?has-child=" + child + "&has-partner=" + partner + "&awards=" + award }}>Link to journey</a>
+            {% endset %}
+            {% set rows = (rows.push([{ text: rows.length + 1 }, { text: child }, { text: partner }, { text: award }, { html: link }]), rows) %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+            {{ title }}
+        </h1>
+
+        {{ govukTable({
+            caption: "Journeys based on user",
+            captionClasses: "govuk-table__caption--m",
+            head: [
+                {
+                    text: "Journey id"
+                },
+                {
+                    text: "Has child?"
+                },
+                {
+                    text: "Has partner?"
+                },
+                {
+                    text: "Benefits awarded (PIP, ESA or both)"
+                },
+                {
+                    text: ""
+                }
+            ],
+            rows: rows
+        }) }}
+    </div>
+</div>
+
+{% endblock %}

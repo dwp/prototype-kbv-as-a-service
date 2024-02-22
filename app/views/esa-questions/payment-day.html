@@ -1,0 +1,100 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'false' %}
+
+{% set title =  "What day of the week do you receive your ESA payment?" %}
+
+{% set detailsTextHtml %}
+    <p class="govuk-body">
+        You can stay on this page for up to 20 minutes if you need to check your answer. Do not close the web page.
+    </p>
+
+    <p class="govuk-body">
+        If you need more time, you can come back and confirm your identity later. You might be asked for different information.
+    </p>
+{% endset %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action={{ formPostLink }} method="post" autocomplete="off">
+
+                <!--page heading with caption include-->
+                {% set pageHeadingH1 %}
+                    <span class="govuk-caption-l">
+                        Confirm your identity
+                    </span>
+                    {{ title }}
+                {% endset %}
+
+                {{ govukRadios({
+                idPrefix: "kbv-esa-payment-day",
+                name: "kbv-esa-payment-day",
+                fieldset: {
+                    legend: {
+                        html: pageHeadingH1,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "Select the day your ESA is usually paid."
+                },
+                items: [
+                    {
+                        value: "mon",
+                        text: "Monday"
+                    },
+                    {
+                        value: "tues",
+                        text: "Tuesday"
+                    },
+                    {
+                        value: "wed",
+                        text: "Wednesday"
+                    },
+                    {
+                        value: "thu",
+                        text: "Thursday"
+                    },
+                    {
+                        value: "fri",
+                        text: "Friday"
+                    },
+                    {
+                        value: "sat",
+                        text: "Saturday"
+                    },
+                    {
+                        value: "sun",
+                        text: "Sunday"
+                    },
+                    {
+                        value: "",
+                        text: "I do not receive ESA on the same day"
+                    }
+                ]
+                }) }}
+
+
+                {{ govukDetails({
+                summaryText: "I do not have this information now",
+                html: detailsTextHtml | safe
+                }) }}
+
+
+                {{ govukButton({
+                    text: "Continue",
+                    disabled: formPostLink === null
+                }) }}
+
+                {% if formPostLink %}
+                    <p><a href={{ formPostLink }}>I cannot answer this question</a></p>
+                {% endif %}
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+
+    <h2 class="govuk-heading-l">Useful pages</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="/journeys">All journeys</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/cis-questions">All CIS questions in this prototype*</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/esa-questions">All ESA questions</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/pip-questions">All PIP questions</a>
+      </li>
+    </ul>
+
+    <p>* Note that some CIS questions were removed for practicality</p>
+
+    <h3 class="govuk-heading-l">Alternative journey links via GDS config page</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="/gds-journey?dwp_sequence=cis_partner_dob,esa_day,esa_claim&version=build">/gds-journey?dwp_sequence=cis_partner_dob,esa_day,esa_claim&version=build</a>
+      </li>
+    </ul>
+
+
+    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+  </div>
+</div>
+
+{% endblock %}

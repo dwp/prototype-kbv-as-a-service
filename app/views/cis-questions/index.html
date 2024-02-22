@@ -1,0 +1,40 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "CIS KBV's" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            {{ title }}
+        </h1>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>
+                <a class="govuk-link" href="/cis-questions/child-dob">What is your eldest child's date of birth?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/cis-questions/child-name">What is your eldest child's full name?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/cis-questions/partner-dob">What is your partner's date of birth?</a>
+            </li>
+
+            <li>
+                <a class="govuk-link" href="/cis-questions/partner-nino">What is your partner's National Insurance number?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/cis-questions/phone-number-mobile">What is your mobile telephone number?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/cis-questions/phone-number-landline">What is your landline telephone number?</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

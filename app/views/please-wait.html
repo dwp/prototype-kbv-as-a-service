@@ -1,0 +1,27 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'false' %}
+{% set backLink = 'false' %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-full">
+
+    <h1 style="text-align: center;" class="govuk-heading-xl govuk-!-margin-bottom-9">Checking your details</h1>
+
+    <div class="ccms-loader govuk-!-margin-bottom-6"></div>
+
+    <p style="text-align: center;">This can take up to 30 seconds.</p>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+    setTimeout(function () {
+        // after 30 seconds
+        window.location = "/question/1";
+    }, 1000 * 30)
+</script>
+{% endblock %}

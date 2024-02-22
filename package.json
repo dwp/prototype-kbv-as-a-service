@@ -1,0 +1,22 @@
+{
+  "name": "kbv-aas-prototype",
+  "version": "1.0.0",
+  "description": "User testing the standalone KBV screens",
+  "main": "index.js",
+  "scripts": {
+    "dev": "govuk-prototype-kit dev",
+    "serve": "govuk-prototype-kit serve",
+    "start": "govuk-prototype-kit start"
+  },
+  "author": "DWP Digital",
+  "license": "ISC",
+  "dependencies": {
+    "@govuk-prototype-kit/common-templates": "2.0.1",
+    "govuk-frontend": "5.2.0",
+    "govuk-prototype-kit": "^13.16.0",
+    "lodash": "4.17.21"
+  },
+  "engines": {
+    "node": "18.16.1"
+  }
+}

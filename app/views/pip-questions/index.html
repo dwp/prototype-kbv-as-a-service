@@ -1,0 +1,43 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "PIP KBV's" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            {{ title }}
+        </h1>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>
+                <a class="govuk-link" href="/pip-questions/account-number">What are the last 4 digits of the account number your PIP is paid into?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/pip-questions/claim-start-date">When did your PIP claim start?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/pip-questions/payment-amount">How much was your last PIP payment after any deductions?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/pip-questions/last-payment-date">When did you receive your last PIP payment?</a>
+            </li>
+
+            <li>
+                <a class="govuk-link" href="/pip-questions/payment-day">What day of the week do you receive your PIP payment?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/pip-questions/sort-code">What is the sort code of the bank or building society your PIP is paid into?</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="/pip-questions/pip-components">Which PIP components do you receive?</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
